@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yukinu</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="../static/Main/media/favicon.png"/>
+
+		<style>
+			@font-face {
+			    font-family: "SiteFont";
+			    src: url("../static/Main/media/AcariSans-Regular.ttf") format('truetype');
+			    font-weight: normal;
+			    font-style: normal;
+			}
+			@font-face {
+			    font-family: "SiteFont";
+			    src: url("../static/Main/media/AcariSans-Bold.ttf") format('truetype');
+			    font-weight: bold;
+			    font-style: normal;
+			}
+		</style>
+		
+		
+<meta name="description" content="iPhone 4s styled web components">
+<meta name="keywords" content="iPhone, 4s, Web Component">
+
+		
+		<link rel="stylesheet" href="../static/Main/css/base.css">
+		
+		<script src="../static/Main/lib/snowstorm-min.js"></script>
+		<script>
+			snowStorm.snowColor = '#EEEEEE'; 
+			snowStorm.flakesMaxActive = 256;
+			snowStorm.freezeOnBlur = false;
+			snowStorm.useTwinkleEffect = false;
+			snowStorm.flakeBottom = null;
+			snowStorm.followMouse = false;
+			snowStorm.snowStick = false;
+			snowStorm.excludeMobile = false;
+			//snowStorm.targetElement = "snowContainer";
+			snowStorm.snowCharacter = "▪";
+			snowStorm.usePositionFixed = true;
+			snowStorm.vMaxX = 0.35;
+			snowStorm.vMaxY = 0.35;
+		</script>
+	</head>
+	<body>
+
+		<header>
+			<nav>
+				<a href="../index.html">Home</a>
+				<a href="../wallpaper.html">Wallpaper</a>
+			</nav>
+		</header>
+		
+		<main>
+			<div id="mainContentContainer">
+				
+
+<script src="../static/IPhone4sComponents/ip4s-components.js"></script>
+
+<h1>iPhone 4s-like Web Components</h1>
+
+<p class="dateContainer">
+	Last updated: <span class="date">01/06/20</span>
+</p>
+
+
+<h2>Summary</h2>
+<p>
+	These are a set of webcomponents created using the webcomponent API based
+	on the native widgets for early versions of iOS. A JavaScript file with all
+	components can be found <a href="../static/IPhone4sComponents/ip4s-components.js">here</a>,
+	or can be <a href="../static/IPhone4sComponents/ip4s-components.7z">downloaded</a>
+	seperately.
+</p>
+
+<div style="display: flex;">
+	<div style="margin: auto;">
+		<ip-phone-container pwidth="300px" pheight="400px">
+			<ip-header-status-bar id="headerStatusBar">12:34 PM</ip-header-status-bar>
+			<script>
+				let hours = new Date().getHours();
+				let minutes = new Date().getMinutes();
+				if (hours > 12) {
+					document.getElementById("headerStatusBar").innerHTML = (hours - 12) + ":" + minutes + " PM";
+				} else {
+					document.getElementById("headerStatusBar").innerHTML = hours + ":" + minutes + " AM";
+				}
+			</script>
+			
+			<ip-header-bar leftbuttontext="Back" rightbuttontext="Edit">Header</ip-header-bar>
+			
+			<div style="padding: 12px;">
+				<ip-button-dropdown-container>
+					<ip-button-dropdown first>Label</ip-button-dropdown>
+					<ip-button-dropdown>Hello</ip-button-dropdown>
+					<ip-button-dropdown>World</ip-button-dropdown>
+					<ip-button-dropdown>Settings</ip-button-dropdown>
+				</ip-button-dropdown-container>
+			</div>
+		
+			<div style="background-image: linear-gradient(hsla(0, 0%, 68%, 100%) 00%, hsl(232.5, 3.7%, 57.3%) 15%, hsl(232, 7.3%, 40.2%) 30%); padding: 16px;">
+				<ip-button-green>Agree</ip-button-green>
+				<div style="height: 8px"></div>
+				<ip-button-red>Cancel</ip-button-red>
+			</div>
+		</ip-phone-container>
+	</div>
+</div>
+
+<hr>
+
+
+
+<h2>Buttons</h2>
+<p>
+	There are 5 different colored basic buttons. All buttons are responsive,
+	and you can add click events to them by using addEventListener.
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>HTML Markup</th>
+			<th>Button</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>&lt;ip-button-green&gt;Green Button&lt;/ip-button-green&gt;</code></td>
+			<td><ip-button-green>Green Button</ip-button-green></td>
+		</tr>
+		<tr>
+			<td><code>&lt;ip-button-red&gt;Red Button&lt;/ip-button-red&gt;</code></td>
+			<td><ip-button-red>Red Button</ip-button-red></td>
+		</tr>
+		<tr>
+			<td><code>&lt;ip-button-yellow&gt;Yellow Button&lt;/ip-button-yellow&gt;</code></td>
+			<td><ip-button-yellow>Yellow Button</ip-button-yellow></td>
+		</tr>
+		<tr>
+			<td><code>&lt;ip-button-grey&gt;Grey Button&lt;/ip-button-grey&gt;</code></td>
+			<td><ip-button-grey>Grey Button</ip-button-grey></td>
+		</tr>
+		<tr>
+			<td><code>&lt;ip-button-black&gt;Black Button&lt;/ip-button-black&gt;</code></td>
+			<td><ip-button-black>Black Button</ip-button-black></td>
+		</tr>
+	</tbody>
+</table>
+
+<hr>
+
+
+<h2>Popup Alert Boxes</h2>
+
+<p>
+	Popup alerts are created with <code>&lt;ip-popup-box&gt;Popup Alert&lt;/ip-popup-box&gt;</code>
+</p>
+
+<ip-popup-box>Popup Alert</ip-popup-box>
+
+<br>
+
+<p>
+	By default, they create two buttons with default Confirm and Cancel text. 
+	However, this text can be set using the <code>leftlabel</code> 
+	and <code>rightlabel</code> properties of the tag. Additionally, a title
+	can be set using the <code>boxtitle</code> property. For example,
+	with the following markup: 
+	<code>&lt;ip-popup-box boxtitle="Alert Title" leftlabel="Hello" rightlabel="World"&gt;Popup Alert&lt;/ip-popup-box&gt;</code>
+</p>
+
+<ip-popup-box boxtitle="Alert Title" leftlabel="Hello" rightlabel="World">
+	Popup Alert
+</ip-popup-box>
+
+<p>
+	To target the buttons, you can target the LeftButton and RightButton classes
+	of the <code>&lt;ip-popup-box&gt;Popup Alert&lt;/ip-popup-box&gt;</code> tag.
+</p>
+
+<hr>
+
+
+<h2>Toggle Button</h2>
+
+<p>
+	A toggle button can be creating using 
+	<code>&lt;ip-toggle-button onvalue="ON" offvalue="OFF"&gt;&lt;/ip-toggle-button&gt;</code>
+</p>
+
+<ip-toggle-button onvalue="ON" offvalue="OFF" style="font-size: 16px;"></ip-toggle-button>
+
+<p>
+	You can set the on and off values for the toggle with the
+	<code>onvalue</code> and <code>offvalue</code> properties
+</p>
+
+<ip-toggle-button onvalue="Hello" offvalue="World" style="font-size: 16px;"></ip-toggle-button>
+
+<p>
+	To make the toggle button clickable, you can add an event listener on the
+	toggle button tag itself.
+</p>
+
+<hr>
+
+
+<h2>Dropdown Buttons</h2>
+
+<p>
+	Dropdown buttons consist of two tags, the 
+	<code>&lt;ip-button-dropdown-container&gt;&lt;/ip-button-dropdown-container&gt;</code>
+	which will contain the dropdown buttons using the 
+	<code>&lt;ip-button-dropdown&gt;Label&lt;/ip-button-dropdown&gt;</code>
+	tags. For example, with the following markup:
+</p>
+
+<pre>
+&lt;ip-button-dropdown-container&gt;
+    &lt;ip-button-dropdown first&gt;Label&lt;/ip-button-dropdown&gt;
+    &lt;ip-button-dropdown&gt;Hello&lt;/ip-button-dropdown&gt;
+    &lt;ip-button-dropdown&gt;World&lt;/ip-button-dropdown&gt;
+&lt;/ip-button-dropdown-container&gt;
+</pre>
+
+<p>
+	Will produce the following dropdown buttons:
+</p>
+
+<ip-button-dropdown-container>
+    <ip-button-dropdown first>Label</ip-button-dropdown>
+    <ip-button-dropdown>Hello</ip-button-dropdown>
+    <ip-button-dropdown>World</ip-button-dropdown>
+</ip-button-dropdown-container>
+
+<p>
+	Notice that the first button needs to include the blank property "first".
+	To make the buttons clickable, you can add them on the dropdown buttons
+	tags.
+</p>
+
+<hr>
+
+
+<h2>Pins</h2>
+
+<p>
+	Currently there are 4 different pins you can create, with the following
+	tags:
+</p>
+
+<ul>
+	<li style="display: flex; margin: 16px;">
+		<code>&lt;ip-pin-blue-arrow&gt;&lt;/ip-pin-blue-arrow&gt;</code>
+		<ip-pin-blue-arrow style="margin-left: 8px;"></ip-pin-blue-arrow>
+	</li>
+	<li style="display: flex; margin: 16px;">
+		<code>&lt;ip-pin-blue-plus&gt;&lt;/ip-pin-blue-plus&gt;</code>
+		<ip-pin-blue-plus style="margin-left: 8px;"></ip-pin-blue-plus>
+	</li>
+	<li style="display: flex; margin: 16px;">
+		<code>&lt;ip-pin-green-plus&gt;&lt;/ip-pin-green-plus&gt;</code>
+		<ip-pin-green-plus style="margin-left: 8px;"></ip-pin-green-plus>
+	</li>
+	<li style="display: flex; margin: 16px;">
+		<code>&lt;ip-pin-red-minus&gt;&lt;/ip-pin-red-minus&gt;</code>
+		<ip-pin-red-minus style="margin-left: 8px;"></ip-pin-red-minus>
+	</li>
+</ul>
+
+<p>
+	You can add click events on the tags themselves to make the pins clickable.
+</p>
+
+<hr>
+
+
+<h2>Notifications</h2>
+
+<p>
+	Notifications are simply text boxes that you can use for notification text.
+	They can be created with the 
+	<code>&lt;ip-notification&gt;Hello World&lt;/ip-notification&gt;</code>
+	tag:
+</p>
+
+<ip-notification>Hello World</ip-notification>
+
+<br>
+
+<p>
+	By default text is aligned to the left, but if you want to center it, you
+	can simply add stylings to the tag. For example, here is markup to
+	center the text:
+	<code>&lt;ip-notification style="text-align: center;"&gt;Hello World&lt;/ip-notification&gt;</code>
+</p>
+
+<ip-notification style="text-align: center;">Hello World</ip-notification>
+
+<hr>
+
+
+<h2>Scroll Buttons</h2>
+
+<p>
+	Scroll buttons involve two tags, the 
+	<code>&lt;ip-scroll-button-container&gt;&lt;/ip-scroll-button-container&gt;</code>
+	which will hold <code>&lt;ip-scroll-button&gt;Label&lt;/ip-scroll-button&gt;</code>.
+	For example, the following markup:
+</p>
+
+<pre>
+&lt;ip-scroll-button-container&gt;
+    &lt;ip-scroll-button&gt;Label 1&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 2&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 3&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 4&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 5&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 6&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 7&lt;/ip-scroll-button&gt;
+    &lt;ip-scroll-button&gt;Label 8&lt;/ip-scroll-button&gt;
+&lt;/ip-scroll-button-container&gt;
+</pre>
+
+<p>
+	Will produce:
+</p>
+
+<ip-scroll-button-container>
+	<ip-scroll-button style="color: black;">Label 1</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 2</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 3</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 4</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 5</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 6</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 7</ip-scroll-button>
+	<ip-scroll-button style="color: black;">Label 8</ip-scroll-button>
+</ip-scroll-button-container>
+
+<p>
+	You can add click events on the 
+	<code>&lt;ip-scroll-button&gt;Label&lt;/ip-scroll-button&gt;</code>
+	tags with addEventListener.
+</p>
+
+<hr>
+
+
+<h2>Header Bar</h2>
+
+<p>
+	The header bar is created with the following two tags. The
+	<code>&lt;ip-header-status-bar&gt;Status&lt;/ip-header-status-bar&gt;</code>
+	creates the top header status bar:
+</p>
+
+<ip-header-status-bar>12:34 PM</ip-header-status-bar>
+
+<p>
+	The <code>&lt;ip-header-bar leftbuttontext="Back" rightbuttontext="Edit"&gt;Header&lt;/ip-header-bar&gt;</code>
+	adds the bottom header bar with 2 clickable buttons. These buttons can
+	be targeted via the <code>.headerLeftButtonContainer</code> and
+	<code>.headerRightButtonContainer</code> classes of the tag.
+</p>
+
+<ip-header-bar leftbuttontext="Back" rightbuttontext="Edit">Header</ip-header-bar>
+
+<p>
+	Finally, putting these two bars right next to each other:
+</p>
+
+<ip-header-status-bar>12:34 PM</ip-header-status-bar>
+<ip-header-bar leftbuttontext="Back" rightbuttontext="Edit">Header</ip-header-bar>
+
+<hr>
+
+
+<h2>Phone Container</h2>
+
+<p>
+	The last tag makes it easy to create a phone container that can
+	be used to hold these other widgets. The
+	<code>&lt;ip-phone-container pwidth="300px" pheight="400px"></code>
+	tag creates the phone container, with the option to specify a width
+	and a height for the container.
+</p>
+
+<ip-phone-container pwidth="300px" pheight="400px"></ip-phone-container>
+
+<p>
+	You can place other tags within this container to create your GUI
+	reminiscient of the GUI on older versions of iOS
+</p>
+
+<hr>
+
+
+<h2>Summary</h2>
+
+<p>
+	While the gradiant style of the widgets in the older iOS versions have
+	become less popular these days, given the shift to the flat design style,
+	the old iOS widgets had a charm to them, and still look good to this day.
+</p>
+
+<hr>
+
+
+			</div>
+		</main>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<style>
+			footer {
+				position: fixed; 
+				left: 0;
+				bottom: 0;
+				width: 100vw; 
+				height: 25px;
+				background-image: url("../static/Main/media/snow3.png");
+				z-index: 10;
+			}
+		</style>
+		<img src="../static/Main/media/cabin2.png" style="position: fixed; left: -5px; bottom: 0px; width: 150px; height: 128px; z-index: 1;">
+		<img src="../static/Main/media/smoke.gif" style="position: fixed; left: -100px; bottom: -73px; width: 200px; height: 200px; z-index: 2;">
+		<footer>
+			
+		</footer>
+	</body>
+</html>

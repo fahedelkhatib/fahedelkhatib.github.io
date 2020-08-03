@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yukinu</title>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="../static/Main/media/favicon.png"/>
+
+		<style>
+			@font-face {
+			    font-family: "SiteFont";
+			    src: url("../static/Main/media/AcariSans-Regular.ttf") format('truetype');
+			    font-weight: normal;
+			    font-style: normal;
+			}
+			@font-face {
+			    font-family: "SiteFont";
+			    src: url("../static/Main/media/AcariSans-Bold.ttf") format('truetype');
+			    font-weight: bold;
+			    font-style: normal;
+			}
+		</style>
+		
+		
+<meta name="description" content="Statistics on YouTuber ReviewBrah's Report of the Week show">
+<meta name="keywords" content="YouTube, ReviewBrah, Statistics, Report Of The Week">
+
+		
+		<link rel="stylesheet" href="../static/Main/css/base.css">
+		
+		<script src="../static/Main/lib/snowstorm-min.js"></script>
+		<script>
+			snowStorm.snowColor = '#EEEEEE'; 
+			snowStorm.flakesMaxActive = 256;
+			snowStorm.freezeOnBlur = false;
+			snowStorm.useTwinkleEffect = false;
+			snowStorm.flakeBottom = null;
+			snowStorm.followMouse = false;
+			snowStorm.snowStick = false;
+			snowStorm.excludeMobile = false;
+			//snowStorm.targetElement = "snowContainer";
+			snowStorm.snowCharacter = "▪";
+			snowStorm.usePositionFixed = true;
+			snowStorm.vMaxX = 0.35;
+			snowStorm.vMaxY = 0.35;
+		</script>
+	</head>
+	<body>
+
+		<header>
+			<nav>
+				<a href="../index.html">Home</a>
+				<a href="../wallpaper.html">Wallpaper</a>
+			</nav>
+		</header>
+		
+		<main>
+			<div id="mainContentContainer">
+				
+
+
+<h1 style="margin-bottom: 0px">Statistics on ReviewBrah's Report of The Week Ratings</h1>
+
+<p class="dateContainer">
+	Last updated: <span class="date">02/04/20</span>
+</p>
+
+<br>
+
+
+
+
+<h2>Summary</h2>
+<p>
+	This is a statistical analysis of YouTuber ReviewBrah's fast food ratings,
+	called Running on Empty. Data is from a JSON api found at this 
+	<a href="https://github.com/andyklimczak/TheReportOfTheWeek-API">github page</a>,
+	and includes many of ReviewBrah's fast food ratings from 2011 - 2018.
+</p>
+
+<hr>
+
+
+
+<h2>Average Score</h2>
+<p>
+	First I had calculated an average score of all ratings marked Running On Empty:
+</p>
+
+<div style="padding: 8px; font-size: 1.25em; text-align: center">
+	<b>Avg. Score = 7.6</b>
+</div>
+
+<div style="padding: 8px; font-size: 1.25em; text-align: center">
+	<b>Rating Count = 467</b>
+</div>
+
+<hr>
+
+
+
+<h2>Average Score by Year</h2>
+<p>
+	Next I calculated the average rating per year. 
+</p>
+
+<table style="width: 100%;">
+	<thead>
+		<tr>
+			<th>Year</th>
+			<th>Average Rating</th>
+			<th>Number of Ratings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2011</td>
+			<td>5.7</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>2012</td>
+			<td>8.5</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>2013</td>
+			<td>7.5</td>
+			<td>16</td>
+		</tr>
+		<tr>
+			<td>2014</td>
+			<td>7.5</td>
+			<td>79</td>
+		</tr>
+		<tr>
+			<td>2015</td>
+			<td>7.8</td>
+			<td>113</td>
+		</tr>
+		<tr>
+			<td>2016</td>
+			<td>7.5</td>
+			<td>155</td>
+		</tr>
+		<tr>
+			<td>2017</td>
+			<td>7.4</td>
+			<td>99</td>
+		</tr>
+		<tr>
+			<td>2018</td>
+			<td>7.5</td>
+			<td>51</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>
+	Interestingly, the average score remained fairly stable, especially the prior 5 years,
+	which are also the years with the most ratings in the dataset (approx. 96% of the total
+	dataset).
+</p>
+
+<div style="display: flex">
+	<img src="../static/ReportOfTheWeek/ratingByYear.svg" style="margin-left: auto; margin-right: auto;">
+</div>
+
+<hr>
+
+
+
+<h2>Average Rating by Month and Week</h2>
+<p>
+	After running yearly numbers, I ran weekly and monthly numbers, getting
+	the average score per day of the week and per the month. One again, the
+	numbers were very stable throughout the days of the week and the months.
+</p>
+
+<div style="display: flex">
+	<img src="../static/ReportOfTheWeek/ratingByMonth.svg" style="margin-left: auto; margin-right: auto;">
+</div>
+
+<div style="display: flex">
+	<img src="../static/ReportOfTheWeek/ratingByDayOfWeek.svg" style="margin-left: auto; margin-right: auto;">
+</div>
+
+<hr>
+
+
+
+<h2>Average Rating by Fast Food Resturant</h2>
+<p>
+	The dataset also included the name of the fast food resturant where the
+	item was purchased. Below is a table of all resturants where the number
+	of ratings was above 10. Categories were based on the categorization
+	found <a href="https://en.wikipedia.org/wiki/Category:Fast-food_restaurants">here</a>.
+	One notable aspect of this table is the higher positions of the pizza resturants
+	versus some of the burger chains. However, the difference is small.
+</p>
+
+<div style="display: flex">
+	<table>
+		<thead>
+			<tr>
+				<th>Resturant</th>
+				<th>Average Score</th>
+				<th>Number Of Reviews</th>
+				<th>Category</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Popeyes</td>
+				<td>8.2</td>
+				<td>15</td>
+				<td>Poultry</td>
+			</tr>
+			<tr>
+				<td>Little Caesars</td>
+				<td>8.0</td>
+				<td>12</td>
+				<td>Pizza</td>
+			</tr>
+			<tr>
+				<td>Pizza Hut</td>
+				<td>7.8</td>
+				<td>25</td>
+				<td>Pizza</td>
+			</tr>
+			<tr>
+				<td>DiGiorno</td>
+				<td>7.7</td>
+				<td>17</td>
+				<td>Pizza</td>
+			</tr>
+			<tr>
+				<td>Planet Wings</td>
+				<td>7.7</td>
+				<td>21</td>
+				<td>Unknown</td>
+			</tr>
+			<tr>
+				<td>Hardee's</td>
+				<td>7.6</td>
+				<td>13</td>
+				<td>Hamburger</td>
+			</tr>
+			<tr>
+				<td>Taco Bell</td>
+				<td>7.6</td>
+				<td>43</td>
+				<td>Mexican</td>
+			</tr>
+			<tr>
+				<td>McDonald's</td>
+				<td>7.5</td>
+				<td>42</td>
+				<td>Hamburger</td>
+			</tr>
+			<tr>
+				<td>Arby's</td>
+				<td>7.2</td>
+				<td>13</td>
+				<td>Sandwich</td>
+			</tr>
+			<tr>
+				<td>KFC</td>
+				<td>7.1</td>
+				<td>17</td>
+				<td>Poultry</td>
+			</tr>
+			<tr>
+				<td>Sonic</td>
+				<td>6.9</td>
+				<td>12</td>
+				<td>Hamburger</td>
+			</tr>
+			<tr>
+				<td>Burger King</td>
+				<td>6.8</td>
+				<td>40</td>
+				<td>Hamburger</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br>
+
+<hr>
+
+
+
+<h2>Conclusion</h2>
+<p>
+	Ratings appear very stable through time, especially over the past 5 years,
+	and show no noticable monthly or weekly seasonality.
+</p>
+
+<hr>
+
+
+
+			</div>
+		</main>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<style>
+			footer {
+				position: fixed; 
+				left: 0;
+				bottom: 0;
+				width: 100vw; 
+				height: 25px;
+				background-image: url("../static/Main/media/snow3.png");
+				z-index: 10;
+			}
+		</style>
+		<img src="../static/Main/media/cabin2.png" style="position: fixed; left: -5px; bottom: 0px; width: 150px; height: 128px; z-index: 1;">
+		<img src="../static/Main/media/smoke.gif" style="position: fixed; left: -100px; bottom: -73px; width: 200px; height: 200px; z-index: 2;">
+		<footer>
+			
+		</footer>
+	</body>
+</html>
